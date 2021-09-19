@@ -1,150 +1,186 @@
 import 'package:flutter/material.dart';
 
-class Homepage extends StatefulWidget {
+class Listpage extends StatefulWidget {
   @override
-  _HomepageState createState() => _HomepageState();
+  _ListpageState createState() => _ListpageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _ListpageState extends State<Listpage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Basic Ecommerce App"),
-        ),
-        body:
-        SingleChildScrollView(
-          child: Column(
-            children: [
-              iphone(),
-              laptop(),
-              ssd(),
-              iphone(),
-              laptop(),
-              ssd(),
-              iphone(),
-              laptop(),
-              ssd()
-            ],
-          ),
-        ));
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        child: SingleChildScrollView(child: wig()),
+      ),
+    );
   }
 }
 
-Widget iphone() {
+Widget wig() {
+  return Container(
+    child: Column(
+      children: [
+        iphone(125,400,"Price : Rs. 1,50,000","20 Pieces"),
+        laptop(125,400,"Price : Rs. 3,50,000","240 Pieces"),
+        ssd(125,400,"Price : Rs. 12,000","440 Pieces"),
+        iphone(125,400,"Price : Rs. 1,50,000","20 Pieces"),
+        laptop(125,400,"Price : Rs. 3,50,000","240 Pieces"),
+        ssd(125,400,"Price : Rs. 12,000","440 Pieces"),
+        iphone(125,400,"Price : Rs. 1,50,000","20 Pieces"),
+        laptop(125,400,"Price : Rs. 3,50,000","240 Pieces"),
+        ssd(125,400,"Price : Rs. 12,000","440 Pieces"),
+        SizedBox(height: 20,)
+      ],
+    ),
+  );
+}
+
+Widget iphone(double h, double w,String t,String t2) {
   return Container(
     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-    height: 125,
-    width: 400,
+    height: h,
+    width: w,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Row(
       children: [
-        Image.asset(
-            'assets/apple-iphone-12-pro-review-one-month-later_aska.h960.jpg',
-            width: 200,
+        Container(
+          height: 125,
+          width: 115,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+            child: Image.asset(
+              'assets/apple-iphone-12-pro-review-one-month-later_aska.h960.jpg',
+              fit: BoxFit.cover,
             ),
-          
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Text(
-              "I Phone 12",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Price : Rs. 1,50,000",
-              style: TextStyle(fontSize: 15),),
-            ),
-            Text("20 Pieces",
-              style: TextStyle(fontSize: 15),)
-          ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "I Phone 12",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+              ),
+              Text(
+                t,
+                style: TextStyle(fontSize: 15),
+              ),
+              Text(
+                t2,
+                style: TextStyle(fontSize: 15),
+              )
+            ],
+          ),
         ),
       ],
     ),
   );
 }
 
-
-Widget laptop() {
+Widget laptop(double h, double w,String t, String t2) {
   return Container(
     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-    height: 125,
-    width: 400,
+    height: h,
+    width: w,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Row(
       children: [
-        Image.asset(
-            'assets/laptop.jpg',
-            width: 200,
+        Container(
+          height: 125,
+          width: 115,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+            child: Image.asset(
+              'assets/laptop.jpg',
+              fit: BoxFit.fill,
             ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
                 "HP Spectre x360",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Price : Rs. 3,50,000",
-              style: TextStyle(fontSize: 15),
+              Text(
+                t,
+                style: TextStyle(fontSize: 15),
               ),
-            ),
-            Text("240 Pieces",
-              style: TextStyle(fontSize: 15),)
-          ],
+              Text(
+                t2,
+                style: TextStyle(fontSize: 15),
+              )
+            ],
+          ),
         ),
       ],
     ),
   );
 }
 
-Widget ssd() {
+Widget ssd(double h, double w,String t, String t2) {
   return Container(
     margin: EdgeInsets.only(left: 20, right: 20, top: 20),
-    height: 150,
-    width: 400,
+    height: h,
+    width: w,
     decoration: BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.circular(8),
     ),
     child: Row(
       children: [
-        Image.asset(
-            'assets/ssd.jpg',
-            width: 200,
+        Container(
+          width: 115,
+          height: 150,
+          child: ClipRRect(
+            borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(8), bottomLeft: Radius.circular(8)),
+            child: Image.asset(
+              'assets/ssd.jpg',
+              fit: BoxFit.fill,
             ),
-        Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(
-                "SAMSUNG SSD ",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,),
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "SAMSUNG SSD 500GB",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                ),
               ),
-            ),
-            Center(child: Text("500GB",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20,))),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text("Price : Rs. 12,000",
-              style: TextStyle(fontSize: 15),
+              Text(
+                t,
+                style: TextStyle(fontSize: 15),
               ),
-            ),
-            Text("440 Pieces",
-              style: TextStyle(fontSize: 15),)
-          ],
+              Text(
+                t2,
+                style: TextStyle(fontSize: 15),
+              )
+            ],
+          ),
         ),
       ],
     ),
